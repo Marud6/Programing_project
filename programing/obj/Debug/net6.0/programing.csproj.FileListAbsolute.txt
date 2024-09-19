@@ -1,0 +1,14 @@
+C:\Users\novy2\OneDrive\Plocha\slozka\programing\programing\bin\Debug\net6.0\programing.exe
+C:\Users\novy2\OneDrive\Plocha\slozka\programing\programing\bin\Debug\net6.0\programing.deps.json
+C:\Users\novy2\OneDrive\Plocha\slozka\programing\programing\bin\Debug\net6.0\programing.runtimeconfig.json
+C:\Users\novy2\OneDrive\Plocha\slozka\programing\programing\bin\Debug\net6.0\programing.dll
+C:\Users\novy2\OneDrive\Plocha\slozka\programing\programing\bin\Debug\net6.0\programing.pdb
+C:\Users\novy2\OneDrive\Plocha\slozka\programing\programing\obj\Debug\net6.0\programing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\novy2\OneDrive\Plocha\slozka\programing\programing\obj\Debug\net6.0\programing.AssemblyInfoInputs.cache
+C:\Users\novy2\OneDrive\Plocha\slozka\programing\programing\obj\Debug\net6.0\programing.AssemblyInfo.cs
+C:\Users\novy2\OneDrive\Plocha\slozka\programing\programing\obj\Debug\net6.0\programing.csproj.CoreCompileInputs.cache
+C:\Users\novy2\OneDrive\Plocha\slozka\programing\programing\obj\Debug\net6.0\programing.dll
+C:\Users\novy2\OneDrive\Plocha\slozka\programing\programing\obj\Debug\net6.0\refint\programing.dll
+C:\Users\novy2\OneDrive\Plocha\slozka\programing\programing\obj\Debug\net6.0\programing.pdb
+C:\Users\novy2\OneDrive\Plocha\slozka\programing\programing\obj\Debug\net6.0\programing.genruntimeconfig.cache
+C:\Users\novy2\OneDrive\Plocha\slozka\programing\programing\obj\Debug\net6.0\ref\programing.dll
