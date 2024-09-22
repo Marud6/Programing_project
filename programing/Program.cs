@@ -557,11 +557,11 @@
                             case 1:
                                 Console.Clear();
                                 Console.WriteLine("How many copper coins you want to add");
-                                int copper_add = Get_user_int_input();
+                                int copper_add = Get_user_int_input(0,1000);
                                 Console.WriteLine("How many silver coins you want to add");
-                                int silver_add = Get_user_int_input();
+                                int silver_add = Get_user_int_input(0, 1000);
                                 Console.WriteLine("How many gold coins you want to add");
-                                int gold_add = Get_user_int_input();
+                                int gold_add = Get_user_int_input(0,1000);
                                 yourCharacter.AddCoins(copper_add, silver_add, gold_add);
                                 continue_anything();
                                 
@@ -569,11 +569,11 @@
                             case 2:
                                 Console.Clear();
                                 Console.WriteLine("How many copper coins you want to remove");
-                                int copper_rem = Get_user_int_input();
+                                int copper_rem = Get_user_int_input(0, 1000);
                                 Console.WriteLine("How many silver coins you want to remove");
-                                int silver_rem = Get_user_int_input();
+                                int silver_rem = Get_user_int_input(0,1000);
                                 Console.WriteLine("How many gold coins you want to remove");
-                                int gold_rem = Get_user_int_input();
+                                int gold_rem = Get_user_int_input(0, 1000);
                                 yourCharacter.RemoveCoins(copper_rem, silver_rem, gold_rem);
                                 continue_anything();
 
@@ -614,11 +614,11 @@
                             case 1:
                                 Console.Clear();
                                 Console.WriteLine("weapon damage");
-                                int weapon_damage = Get_user_int_input();
+                                int weapon_damage = Get_user_int_input(0, 1000);
                                 Console.WriteLine("weapon name");
                                 string weapon_name = Get_user_input();
                                 Console.WriteLine("weapon weight");
-                                int weapon_weight = Get_user_int_input();
+                                int weapon_weight = Get_user_int_input(0, 1000);
                                 one_handed_weapon weapon_created = Character.CreateWeaponone(weapon_damage, weapon_name, weapon_weight);
                                 yourCharacter.AddToInventory(weapon_created);
                                 continue_anything();
@@ -627,11 +627,11 @@
                             case 2:
                                 Console.Clear();
                                 Console.WriteLine("armor defence");
-                                int armor_defence = Get_user_int_input();
+                                int armor_defence = Get_user_int_input(0, 1000);
                                 Console.WriteLine("armor name");
                                 string armor_name = Get_user_input();
                                 Console.WriteLine("armor weight");
-                                int armor_weight = Get_user_int_input();
+                                int armor_weight = Get_user_int_input(0,1000);
                                 Armor armor_created = Character.CreateArmor(armor_defence, armor_name, armor_weight);
                                 yourCharacter.AddToInventory(armor_created);
                                 continue_anything();
@@ -640,11 +640,11 @@
                             case 3:
                                 Console.Clear();
                                 Console.WriteLine("armor defence");
-                                int shield_defence = Get_user_int_input();
+                                int shield_defence = Get_user_int_input(0, 1000);
                                 Console.WriteLine("armor name");
                                 string shield_name = Get_user_input();
                                 Console.WriteLine("armor weight");
-                                int shield_weight = Get_user_int_input();
+                                int shield_weight = Get_user_int_input(0, 1000);
                                 Shield shield_created = Character.CreateShield(shield_defence, shield_name, shield_weight);
                                 yourCharacter.AddToInventory(shield_created);
                                 continue_anything();
@@ -656,7 +656,7 @@
                                 Console.WriteLine("armor name");
                                 string item_name = Get_user_input();
                                 Console.WriteLine("armor weight");
-                                int item_weight = Get_user_int_input();
+                                int item_weight = Get_user_int_input(0, 1000);
                                 Game_Item item_created = Character.CreateItem(item_name, item_weight);
                                 yourCharacter.AddToInventory(item_created);
                                 continue_anything();
@@ -667,11 +667,11 @@
                             case 5:
                                 Console.Clear();
                                 Console.WriteLine("weapon damage");
-                                int weapon_damage2 = Get_user_int_input();
+                                int weapon_damage2 = Get_user_int_input(0, 1000);
                                 Console.WriteLine("weapon name");
                                 string weapon_name2 = Get_user_input();
                                 Console.WriteLine("weapon weight");
-                                int weapon_weight2 = Get_user_int_input();
+                                int weapon_weight2 = Get_user_int_input(0, 1000);
                                 two_handed_weapon weapon_created2 = Character.CreateWeapontwo(weapon_damage2, weapon_name2, weapon_weight2);
                                 yourCharacter.AddToInventory(weapon_created2);
                                 continue_anything();
@@ -704,9 +704,9 @@
                                 Console.WriteLine("Enemy name");
                                 Enemy_name = Get_user_input();
                                 Console.WriteLine("Enemy damage");
-                                Enemy_damage = Get_user_int_input();
+                                Enemy_damage = Get_user_int_input(0, 1000);
                                 Console.WriteLine("Enemy defence");
-                                Enemy_defence = Get_user_int_input();
+                                Enemy_defence = Get_user_int_input(0, 1000);
                                 Enemy enemy = new(Enemy_name, Enemy_damage, Enemy_defence);
 
 
@@ -734,7 +734,7 @@
                             case 2:
                                 Console.Clear();
                                 Console.WriteLine("how many enemyes to fight");
-                                int enemyes_count = Get_user_int_input();
+                                int enemyes_count = Get_user_int_input(0, 1000);
                                 Queue<Enemy> myQueue = new Queue<Enemy>();
                                 for (int i = 0; i < enemyes_count; i++)
                                 {
@@ -743,10 +743,10 @@
                                     Enemy_name = Get_user_input();
 
                                     Console.WriteLine("Enemy damage");
-                                    Enemy_damage = Get_user_int_input();
+                                    Enemy_damage = Get_user_int_input(0,1000);
 
                                     Console.WriteLine("Enemy defence");
-                                    Enemy_defence = Get_user_int_input();
+                                    Enemy_defence = Get_user_int_input(0,1000);
                                     Enemy enemy_que = new(Enemy_name, Enemy_damage, Enemy_defence);
                                     myQueue.Enqueue(enemy_que);
                                   

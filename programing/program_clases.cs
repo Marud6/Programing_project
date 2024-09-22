@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace programing
@@ -23,7 +24,7 @@ namespace programing
         private Item ItemInHandother { get; set; }
 
         public Item EquippedArmor { get; private set; }
-        public Coins Coins { get; private set; }
+        private Coins Coins { get;  set; }
 
         private static readonly RandomNumberGenerator rng = RandomNumberGenerator.Create();
 
@@ -160,7 +161,8 @@ namespace programing
         {
             if (damage < 0 || weight < 0 || string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentException("Invalid weapon parameters.");
+                Console.WriteLine("invalid parametrs item is default");
+                return new two_handed_weapon(1, "default", 1);
             }
             return new two_handed_weapon(damage, name, weight);
         }
@@ -168,7 +170,8 @@ namespace programing
         {
             if (damage < 0 || weight < 0 || string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentException("Invalid weapon parameters.");
+                Console.WriteLine("invalid parametrs item is default");
+                return new one_handed_weapon(1, "default", 1);
             }
             return new one_handed_weapon(damage, name, weight);
         }
@@ -177,7 +180,8 @@ namespace programing
         {
             if (defense < 0 || weight < 0 || string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentException("Invalid armor parameters.");
+                Console.WriteLine("invalid parametrs item is default");
+                return new Armor(1, "default", 1);
             }
             return new Armor(defense, name, weight);
         }
@@ -186,7 +190,8 @@ namespace programing
         {
             if (defense < 0 || weight < 0 || string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentException("Invalid shield parameters.");
+                Console.WriteLine("invalid parametrs item is default");
+                return new Shield(1, "default", 1);
             }
             return new Shield(defense, name, weight);
         }
@@ -195,7 +200,8 @@ namespace programing
         {
             if (weight < 0 || string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentException("Invalid item parameters.");
+                Console.WriteLine("invalid parametrs item is default");
+                return new Game_Item( "default", 1);
             }
             return new Game_Item(name, weight);
         }
@@ -386,7 +392,7 @@ namespace programing
             }
         }
 
-        public void UnequipWeapon()
+        public int UnequipWeapon()
         {
             if (ItemInHand.getname() != null)
             {
@@ -395,39 +401,49 @@ namespace programing
 
 
                 Console.WriteLine("Weapon unequipped");
-
+                
+            }else if (ItemInHand.getname() == null && ItemInHandother.getname()==null)
+            {
+                Console.WriteLine("Weapon slot is empty");
+                return 0;
             }
             if (ItemInHandother.getType() == "two-weapon")
             {
-                return;
+                ItemInHandother = new Item();
+                return 1;
             }
             else if (ItemInHandother.getname() != null)
             {
                 AddToInventory(ItemInHandother);
                 ItemInHandother = new Item();
                 Console.WriteLine("Weapon unequipped");
+                return 1;
+
             }
             else
             {
-                Console.WriteLine("Weapon slot is empty");
+                return 1;
+                Console.WriteLine("Weapon unequipped");
             }
         }
 
-        public void UnequipArmor()
+        public int UnequipArmor()
         {
             if (EquippedArmor.getname() != null)
             {
                 AddToInventory(EquippedArmor);
                 EquippedArmor = new Item();
                 Console.WriteLine("Armor unequipped");
+                return 1;
             }
             else
             {
                 Console.WriteLine("Armor slot is empty");
+                return 0;
             }
         }
 
-        public void ViewInventory()
+        public int ViewInventory()
         {
             for (int i = 0; i < Inventory.Count; i++)
             {
@@ -436,6 +452,7 @@ namespace programing
             Console.WriteLine(ItemInHand.getname() == null ? "Nothing is in your hand" : $"Item in hand: {ItemInHand.getname()}  ({ItemInHand.getType()})");
             Console.WriteLine(ItemInHandother.getname() == null ? "Nothing is in your hand" : $"Item in other hand: {ItemInHandother.getname()} ({ItemInHandother.getType()})");
             Console.WriteLine(EquippedArmor.getname() == null ? "No armor equipped" : $"Equipped armor: {EquippedArmor.getname()}");
+            return 1;
         }
     }
 
@@ -659,7 +676,7 @@ namespace programing
         {
             int your_money = Calc_to_number(Copper, Silver, Gold);
             int to_rem_money = Calc_to_number(copper_rem, silver_rem, gold_rem);
-            if (your_money > to_rem_money)
+            if (your_money >= to_rem_money)
             {
                 Console.WriteLine("money removed");
                 your_money -= to_rem_money;
@@ -688,13 +705,14 @@ namespace programing
 
         public void MoneyInfo()
         {
+            
             Console.WriteLine("you now have " + Copper + " copper");
             Console.WriteLine("you now have " + Silver + " silver");
             Console.WriteLine("you now have " + Gold + " gold");
         }
 
 
-        public void CalculateMoney()
+        private void CalculateMoney()
         {
             if (Copper >= 10)
             {

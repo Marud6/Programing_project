@@ -147,10 +147,112 @@ namespace TestProject
         {
             int a = character.CharacterStats();
 
+            Assert.That(1, Is.EqualTo(a));
+             a = character.ViewInventory();
             Assert.AreEqual(1, a);
 
 
         }
+
+
+
+        [Test]
+        public void unequip_weapon()
+        {
+
+            one_handed_weapon one_w = Character.CreateWeaponone(1, "asdf", 3);
+            two_handed_weapon two_w = Character.CreateWeapontwo(1, "asdf", 3);
+
+            character.AddToInventory(one_w);
+            character.AddToInventory(two_w);
+            character.EquipItem(0);
+            int a = character.UnequipWeapon();
+            int i = character.UnequipWeapon();
+
+            Assert.AreEqual(0, i);
+            Assert.AreEqual(1, a);
+
+            character.EquipItem(0);
+            a = character.UnequipWeapon();
+
+            i = character.UnequipWeapon();
+
+            Assert.AreEqual(1, a);
+            Assert.AreEqual(0, i);
+           
+
+
+
+
+
+
+
+
+        }
+
+        [Test]
+        public void unequip_armor()
+        {
+            Armor armor = Character.CreateArmor(1, "asdf", 3);
+            Armor armor2 = Character.CreateArmor(3, "hjk", 2);
+
+
+            character.AddToInventory(armor);
+            character.AddToInventory(armor2);
+            character.EquipItem(0);
+
+            int a = character.UnequipArmor();
+            int i = character.UnequipArmor();
+
+            Assert.AreEqual(0, i);
+            Assert.AreEqual(1, a);
+
+            character.EquipItem(0);
+
+             a = character.UnequipArmor();
+             i = character.UnequipArmor();
+
+            Assert.AreEqual(0, i);
+            Assert.AreEqual(1, a);
+        }
+
+
+
+        [Test]
+        public void money()
+        { 
+            character.GetMoneyInfo();
+            character.AddCoins(10, 0, 0);
+
+          int  a = character.RemoveCoins(10,0,0);
+           int i = character.RemoveCoins(0,1,0);
+            Assert.AreEqual(0, i);
+            Assert.AreEqual(1, a);
+
+        }
+
+
+        [Test]
+        public void create_invalid_items()
+        {
+            
+
+
+            Character.CreateItem("adfs" ,- 5);
+            Character.CreateArmor(-5, "afds", -5);
+            Character.CreateWeaponone(-5, "afds", -5);
+            Character.CreateWeapontwo(-5, "afds", -5);
+            Character.CreateShield(-5, "afds", -5);
+            Assert.Pass();
+
+
+
+
+        }
+
+
+
+
 
 
 
